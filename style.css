@@ -1,0 +1,184 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: #60435F;
+    font-family: 'Inter';
+}
+
+.encabezado{
+    margin: 0 0 20px 0;
+}
+
+.encabezado svg{
+    margin: 25px 0;
+    filter: drop-shadow( 2px 2px 2px rgba(0, 0, 3, .7));
+}
+
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    gap: 100px;
+}
+
+.textoEntrada label{
+    color: #20A39E;
+    position: absolute;
+    top: -30px;
+    left: 40px;
+}
+
+.textoEntrada svg{
+    width: 35px;
+    position: absolute;
+    top: -40px;
+}
+
+.textoEntrada textarea, .textoSalida textarea{
+    height: 450px;
+    width: 380px;
+    border-radius: 10px;
+    font-size: 1.3em;
+    resize: none;
+    padding: 20px 20px;
+    background-color: #FDF7FA;
+    box-sizing: border-box;
+}
+
+.textoEntrada, .textoSalida{
+    position: relative;
+}
+
+.textoSalida img{
+    width: 300px;
+    height: 300px;
+    position: absolute;
+    left: 50px;
+    top: 25px;
+}
+
+.textoSalida p{
+    width: 336px;
+    height: 122px;
+    text-align: center;
+    position: absolute;
+    left: 25px;
+    top: 320px;
+}
+
+.textoSalida p::first-line{
+    font-weight: bold;
+    line-height: 40px;
+}
+
+.botones{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    margin: 20px 0;
+}
+
+.botones button{
+    width: 130px;
+    height: 50px;
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+    font-family: 'Inter';
+    font-size: 1em;
+    cursor: pointer;
+    background-color: #D67AB1;
+    color: white;
+    transition: background-color 0.3s, font-size 0.3s, position 0.1s;
+}
+
+.botones button:hover{
+    background-color: #75DDDD;
+    font-size: 1.1em;
+    position: relative;
+    bottom: 2px;
+}
+
+.botones button:active{
+    background-color: #E59F71;
+}
+
+footer{
+    height: 50px;
+    width: 100%;
+}
+
+footer h2{
+    color: #20A39E;
+    text-align: center;
+    font-size: 1.2em;
+    font-weight: bold;
+    margin: 50px auto;
+}
+
+footer h2 > p{
+    color: #FFBA49;
+    display: inline;
+}
+
+@media only screen and (max-width: 1024px) {
+    .container {
+        flex-direction: column;
+        gap: 0;
+    }
+
+    .textoEntrada textarea, .textoSalida textarea{
+        height: 450px;
+        width: 80vw;
+    }
+
+    .textoSalida img{
+        width: 30vw;
+        top: 5%;
+        left: 33%;
+    }
+    
+    .textoSalida p{
+        font-size: 2vw;
+        width: 40vw;
+        top: 60%;
+        left: 25%;
+    }
+}
+
+@media only screen and (max-width: 450px) {
+    .textoSalida img{
+        width: 100%;
+        max-width: 400px;
+        height: auto;
+        top: 7%;
+        left: 0;
+    }
+    
+    .textoSalida p{
+        font-size: 1em;
+        width: 100%;
+        top: 60%;
+        left: 0;
+    }
+
+    .textoEntrada label{
+        color: #20A39E;
+        position: absolute;
+        top: -30px;
+        left: 40px;
+        font-size: 0.9em;
+    }
+    
+    .textoEntrada svg{
+        width: 30px;
+        position: absolute;
+        top: -39px;
+    }
+}
