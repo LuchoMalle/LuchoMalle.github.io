@@ -8,40 +8,19 @@ var expresion = /[A-Z0-9áéíóú]/;
 /* Función de encriptación del texto */
 
 document.getElementById('botonEncriptar').onclick = function(){
-    var txt = texto1.value;
-    var txt1 = "";
-    var txtNuevo = "";
-
-    if (typeof txt === 'string'){
-        if (txt.length){
-            if(expresion.test(txt)){
+    var encriptado = texto1.value;
+    if (typeof encriptado === 'string'){
+        if (encriptado.length){
+            if(expresion.test(encriptado)){
                 alert("El texto escrito solo puede tener caracteres en mínuscula y sin tilde");
                 texto1.value = "";
             }else{
-                for(var i = 0; i < txt.length; i++){
-                    txt1 = txt[i];
-                    if(txt1 == "a"){
-                        txt1 = "ai";
-                    }
-                    if(txt1 == "e"){
-                        txt1 = "enter";
-                    }
-                    if(txt1 == "i"){
-                        txt1 = "imes";
-                    }
-                    if(txt1 == "o"){
-                        txt1 = "ober";
-                    }
-                    if(txt1 == "u"){
-                        txt1 = "ufat";
-                    }
-                    txtNuevo += txt1;
-                }
+                encriptado = encriptado.replace(/e/g, 'enter').replace(/i/g, 'imes').replace(/a/g, 'ai').replace(/o/g, 'ober').replace(/u/g, 'ufat')
                 if(document.getElementById("removerImg") && document.getElementById("removerP")){
                     removerImg.parentNode.removeChild(removerImg);
                     removerP.parentNode.removeChild(removerP);
                 }
-                texto2.value = txtNuevo;
+                texto2.value = encriptado;
             }
         }else{
             alert('El texto debe tener al menos un caracter');
@@ -53,26 +32,22 @@ document.getElementById('botonEncriptar').onclick = function(){
 
 /* Función de desencriptación del texto */
 document.getElementById('botonDesencriptar').onclick = function(){
-    var txt = texto1.value;
+    var desencriptado = texto1.value;
 
-    if (typeof txt === 'string'){
-        if (txt.length){
-            if(expresion.test(txt)){
+    if (typeof desencriptado === 'string'){
+        if (desencriptado.length){
+            if(expresion.test(desencriptado)){
                 alert("El texto escrito solo puede tener caracteres en mínuscula y sin acentos");
                 texto1.value = "";
             }else{
-                txt = txt.replace(/ai/gi, 'a');
-                txt = txt.replace(/enter/gi, 'e');
-                txt = txt.replace(/imes/gi, 'i');
-                txt = txt.replace(/ober/gi, 'o');
-                txt = txt.replace(/ufat/gi, 'u');
+                desencriptado = desencriptado.replace(/ai/gi, 'a').replace(/enter/gi, 'e').replace(/imes/gi, 'i').replace(/ober/gi, 'o').replace(/ufat/gi, 'u');
 
                 if(document.getElementById("removerImg") && document.getElementById("removerP")){
                     removerImg.parentNode.removeChild(removerImg);
                     removerP.parentNode.removeChild(removerP);
                 }
                 
-                texto2.value = txt;
+                texto2.value = desencriptado;
             }
         }else{
             alert('El texto debe tener al menos un caracter');
